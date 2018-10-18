@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4a7f1279-a369-413d-8484-fa102d657bae">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fecha_inicio" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha_final" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipo" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from f_listado_produccion($P{fecha_inicio},$P{fecha_final},$P{tipo})]]>
+	</queryString>
+	<field name="numero_produccion" class="java.lang.Integer"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="nombre_cliente" class="java.lang.String"/>
+	<field name="sucursal" class="java.lang.String"/>
+	<field name="arroz_cascara" class="java.lang.Integer"/>
+	<field name="total_pilado" class="java.math.BigDecimal"/>
+	<field name="total_envase" class="java.math.BigDecimal"/>
+	<field name="usuario" class="java.lang.String"/>
+	<field name="fecha_registro" class="java.sql.Date"/>
+	<field name="hora_registro" class="java.sql.Time"/>
+	<field name="estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="47" uuid="939bfd88-06f8-4dfd-91ec-243c5956a7a9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE PRODUCCIÓN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="30" height="20" uuid="e2458019-071b-4613-a796-c534b6e54656"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="2" width="120" height="20" uuid="f592f2e8-7f37-4a19-ac12-63ae42c5189d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="2" width="195" height="20" uuid="97fd9d6b-d695-4d53-b486-f1740a72c9b2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[nombre_cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="2" width="100" height="20" uuid="afe151d1-16ed-4d99-bc50-8dc1842ab038"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[sucursal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="445" y="2" width="77" height="20" uuid="7ac3f704-4cfd-4158-b9ef-3882b21fc71b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[arroz_cascara]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="522" y="2" width="100" height="20" uuid="5788395b-70c5-488d-99a5-368e8437b0db"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[total_pilado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="622" y="2" width="100" height="20" uuid="22b2ed5e-6b2f-40c1-83df-e8d141a8b10e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[total_envase]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="722" y="2" width="80" height="20" uuid="de54db41-b2fd-43a0-90be-3dfe5f28fdfb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="30" height="20" uuid="2ddb28ee-8cbc-464c-8395-4b4b9ec9f681"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{numero_produccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="0" width="120" height="20" uuid="7a6732b1-f0c9-44bb-9b6c-f11e40d04bd7"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="0" width="195" height="20" uuid="a2c4cd43-89df-428d-b089-e8527f6b10d1"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{nombre_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="345" y="0" width="100" height="20" uuid="6a6f0dec-f637-45ee-8704-371d42425c70"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{sucursal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="445" y="0" width="77" height="20" uuid="1283fa4c-1a9f-4254-b2a8-9e4ad3bd0288"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{arroz_cascara}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="522" y="0" width="100" height="20" uuid="31fe7843-3701-422a-b666-336c27dfaeb2"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{total_pilado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="622" y="0" width="100" height="20" uuid="660f9d3d-6104-4482-9e3f-d630a8cb10a0"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{total_envase}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="722" y="0" width="80" height="20" uuid="b3871b06-039a-46dd-b1ae-9fc963d22160"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
